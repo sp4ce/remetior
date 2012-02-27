@@ -21,18 +21,6 @@
     </div>
   </body>
 
-  <!-- templates used by app.js -->
-  <script id="uploader" type="text/x-mustache" charset="utf-8">
-      <div class="avatar">
-        {{#gravatar_url}}<img src="{{gravatar_url}}"/>{{/gravatar_url}}
-        <div class="name">
-          {{name}}
-        </div>
-      </div>
-      <form id="upload-sheet">
-        <label>{{nickname}}, upload a new sheet: <input type="file" name="sheet" size=60 value=""></label>
-      </form>
-      <div style="clear:left;"></div>
-  </script>
+  <!-- run app.js entry point -->
   <script src="script/app.js"></script>
 </html>

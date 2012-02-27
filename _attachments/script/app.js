@@ -46,32 +46,24 @@ $(function() {
   //  }
     
     // Evently binding
-//    $.couch.app(function(app) {
-//        $("#account").evently("account", app);
-//        $("#profile").evently("profile", app);
-//        $.evently.connect("#account", "#profile", ["loggedIn", "loggedOut"]);
-//        //$.couchProfile.templates.profileReady = ($('<div></div>').evently("uploader", app)).html();
-//    });
+    $.couch.app(function(app) {
+        // Set up the evently widget and insert it after we logged the user.
+        var uploader = $('<div></div>');
+        uploader.evently("uploader", app, { coucou: "coucou"});
+        couch_login(uploader.html());
+    });
+ });
 
-    // After the user has logged in, display the uploader.
-    $.couchProfile.templates.profileReady = $("#uploader").html();
+function couch_login(profile_ready_template) {
+    $.couchProfile.templates.profileReady = profile_ready_template;
     $("#account").couchLogin({
         loggedIn : function(r) {
-            $("#profile").couchProfile(r, {
-                profileReady : function(profile) {
-                    $("#upload-sheet").submit(function(e){
-                        e.preventDefault();
-                  //      var form = this, doc = $(form).serializeObject();
-                  //      doc.created_at = new Date();
-                  //      doc.profile = profile;
-                  //      db.saveDoc(doc, {success : function() {form.reset();}});
-                        return false;
-                    }).find("input").focus();
-                }
-            });
+            $("#profile").couchProfile(r);
         },
         loggedOut : function() {
             $("#profile").html('<p>Please log in to see your profile.</p>');
         }
     });
- });
+}
+
+
