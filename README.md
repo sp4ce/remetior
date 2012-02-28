@@ -1,32 +1,19 @@
-## Generated CouchApp
+## Remetior CouchApp
 
-This is meant to be an example CouchApp and to ship with most of the CouchApp goodies.
+_Remetior_ means "to do measurement again" in latin. It means that this app will help you counting what are your expense. 
 
 Clone with git:
 
-    git clone git://github.com/couchapp/example.git
-    cd example
+    git clone git://github.com/sp4ce/remetior.git
+    cd remetior 
+
+Edit database connection access (it is admin:admin by default)
+
+    vim .couchapprc
 
 Install with 
     
-    couchapp push . http://localhost:5984/example
-
-or (if you have security turned on)
-
-    couchapp push . http://adminname:adminpass@localhost:5984/example
-  
-You can also create this app by running
-
-    couchapp generate example && cd example
-    couchapp push . http://localhost:5984/example
-
-Deprecated: *couchapp generate proto && cd proto*
-
-
-## Todo
-
-* factor CouchApp Commonjs to jquery.couch.require.js
-* use $.couch.app in app.js
+    couchapp push 
 
 ## License
 
