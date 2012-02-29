@@ -3,10 +3,13 @@ function(e) {
     var form = this;
  
     // Check the status of the form. 
-    if (this._attachments.value == '') {
+    if (form._attachments.value == '') {
         alert('Please provide a file.');
         return;
     }
+
+    // Show the loading widget.
+    $(form).trigger('loading');
 
     // Generate the document id.
     var now = new Date();
@@ -25,7 +28,7 @@ function(e) {
                     url: $$(form).app.db.uri + doc_id,
                     success: function(resp) {
                         if (resp.match('ok')){ 
-                            parse_uploaded_document(doc_id); 
+                            parse_uploaded_document(doc_id, form); 
                         } else if (resp.match('error')) { 
                             alert('error'); 
                         } 
@@ -39,9 +42,14 @@ function(e) {
 /**
  * Parse the uploaded document to store entries in the couch db database.
  * @param doc_id: the document id where the attachement is.
+ * @param form: the html form element used to send the file.
  */
-function parse_uploaded_document(doc_id) {
+function parse_uploaded_document(doc_id, form) {
     //TODO
     alert('parsing');
+
+    // Reset the state of the form and hide the loading bar.
+    form.reset();
+    $(form).trigger('loaded');
 }
 

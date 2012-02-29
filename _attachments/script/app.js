@@ -1,9 +1,19 @@
-// Entry poin of the application.
-$(function() {   
+/**
+ * Entry poin of the application.
+ */
+$(function() {
+    // Binding of the login events.
     $.couch.app(couch_login);
+    // General evently bindings.
+    $.couch.app(function(app) {
+        $('#loading').evently('loading', app);
+    })
  });
 
-// Set up the couch login in the account div.
+/**
+ * Set up the couch login in the account div.
+ * @param app: the application object.
+ */
 function couch_login(app) {
     // Set the couch login on the account div.
     $('#account').couchLogin({

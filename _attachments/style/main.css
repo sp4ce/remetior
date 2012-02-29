@@ -48,3 +48,28 @@ h1 {
   float: left;
 }
 
+/***********************
+ * Classes for dialogs *
+ ***********************/
+
+.dialog-overlay {
+  z-index: 1001;
+  opacity: 0.4;
+  background: black;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.dialog {
+  z-index: 1002;
+  position: fixed;
+  border: 2px solid gray;
+  text-align: center;
+  width: 235px;
+  height: 258px;
+}
+
+.dialog div {
+  background: white;
+}

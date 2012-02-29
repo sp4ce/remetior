@@ -11,6 +11,7 @@ couchapp_load([
   '/_utils/script/jquery.js',
   '/_utils/script/jquery.couch.js',
   '/_utils/script/jquery.form.js',
+  '/_utils/script/jquery.dialog.js',
   'vendor/couchapp/jquery.couch.app.js',
   'vendor/couchapp/jquery.couch.app.util.js',
   'vendor/couchapp/jquery.mustache.js',
