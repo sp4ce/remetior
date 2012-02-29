@@ -9,7 +9,7 @@ function(e) {
     }
 
     // Show the loading widget.
-    $(form).trigger('loading');
+    $(form).trigger('loading', 'uploading...');
 
     // Generate the document id.
     var now = new Date();
@@ -28,6 +28,7 @@ function(e) {
                     url: $$(form).app.db.uri + doc_id,
                     success: function(resp) {
                         if (resp.match('ok')){ 
+                            $(form).trigger('update_label', 'parsing...'); 
                             parse_uploaded_document(doc_id, form); 
                         } else if (resp.match('error')) { 
                             alert('error'); 
@@ -46,7 +47,6 @@ function(e) {
  */
 function parse_uploaded_document(doc_id, form) {
     //TODO
-    alert('parsing');
 
     // Reset the state of the form and hide the loading bar.
     form.reset();
