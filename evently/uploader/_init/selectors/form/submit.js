@@ -49,7 +49,8 @@ function(e) {
 function parse_uploaded_document(doc_id, form, parser) {
     // Get the uploaded document.
     $.get($$(form).app.db.uri + doc_id, function(data) {
-        for (var attachment_id in JSON.parse(data)._attachments) {
+        var doc = JSON.parse(data);
+        for (var attachment_id in doc._attachments) {
             // Get the attachments of the document. we should have only one attachment here in fact.
             $.get($$(form).app.db.uri + doc_id + '/' + attachment_id, function(data) {
                 // Read cvs formatted line.
@@ -57,9 +58,14 @@ function parse_uploaded_document(doc_id, form, parser) {
                     operation.type = 'operation';
                     $$(form).app.db.saveDoc(operation);
                 });
-                // Reset the state of the form and hide the loading bar.
-                form.reset();
-                $(form).trigger('loaded');
+
+                // Delete the uploaded files now that all the operations are in DB.
+                $(form).trigger('update_label', 'cleaning...');
+                $$(form).app.db.removeDoc({ _id: doc_id, _rev: doc._rev }, { success: function() {
+                    // Reset the state of the form and hide the loading bar.
+                    form.reset();
+                    $(form).trigger('loaded');
+                }});
             });
         }
     });
