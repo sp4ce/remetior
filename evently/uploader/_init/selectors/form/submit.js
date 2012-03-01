@@ -60,7 +60,7 @@ function parse_uploaded_document(doc_id, form, parser) {
                         key: operation.get_key(),
                         success: function(view) {
                             // Save the operation only if it is the only one.
-                            if (view.total_rows == 0) {
+                            if (view.rows.length == 0) {
                                 $$(form).app.db.saveDoc(operation);
                             }
                         }
