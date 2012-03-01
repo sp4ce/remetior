@@ -8,6 +8,7 @@ $(function() {
     $.couch.app(function(app) {
         $('#loading').evently('loading', app);
         $.evently.connect('#menu', '#main', ['show']);
+        $.evently.connect('#main', '#menu', ['select']);
     })
  });
 
@@ -21,8 +22,8 @@ function couch_login(app) {
         // Called when the user has logged in.
         loggedIn : function(r) {
             $('#top').evently('top', app);
-            $('#main').show().evently('main', app);
             $('#menu').show().evently('menu', app);
+            $('#main').show().evently('main', app);
         },
 
         // Called when the user has logged out.
