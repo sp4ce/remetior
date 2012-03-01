@@ -7,6 +7,7 @@ $(function() {
     // General evently bindings.
     $.couch.app(function(app) {
         $('#loading').evently('loading', app);
+        $.evently.connect('#menu', '#main', ['show']);
     })
  });
 
