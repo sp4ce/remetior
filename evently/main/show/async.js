@@ -1,3 +1,3 @@
 function(callback, e, data) {
-    $(this).empty().evently(data, $$(this).app);
+    $(this).find('div').empty().evently(data, $$(this).app);
 }
