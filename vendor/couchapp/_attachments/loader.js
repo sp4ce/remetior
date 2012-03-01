@@ -18,5 +18,6 @@ couchapp_load([
   'vendor/couchapp/jquery.evently.js',
   'vendor/couchapp/jquery.couchLogin.js',
   'vendor/couchapp/jquery.couchProfile.js',
+  'vendor/couchapp/jquery.class.js',
   'vendor/couchapp/md5.js',
 ]);

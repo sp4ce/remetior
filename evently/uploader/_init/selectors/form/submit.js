@@ -55,8 +55,16 @@ function parse_uploaded_document(doc_id, form, parser) {
             $.get($$(form).app.db.uri + doc_id + '/' + attachment_id, function(data) {
                 // Read cvs formatted line.
                 parser(data, function(operation) {
-                    operation.type = 'operation';
-                    $$(form).app.db.saveDoc(operation);
+                    // Check that the same operation is not already there.
+                    $$(form).app.db.view('remetior/operations', {
+                        key: operation.get_key(),
+                        success: function(view) {
+                            // Save the operation only if it is the only one.
+                            if (view.total_rows == 0) {
+                                $$(form).app.db.saveDoc(operation);
+                            }
+                        }
+                    });
                 });
 
                 // Delete the uploaded files now that all the operations are in DB.
@@ -81,11 +89,11 @@ function socgen_parser(data, callback) {
         if (index < 3) {
             return; // offset in the csv file.
         }
-        callback({
-            date: socgen_parse_date(line[0]),
-            label: $.trim(line[2]),
-            value: parseFloat(line[3])
-        });
+
+        var operation = new Operation(socgen_parse_date(line[0]), $.trim(line[2]), parseFloat(line[3]));
+        if (operation.is_valid()) {
+            callback(operation);
+        }
     });
 }
 
@@ -96,7 +104,7 @@ function socgen_parser(data, callback) {
  */
 function socgen_parse_date(value) {
     var values = value.split('/');
-    var date = new Date();
+    var date = new Date(0);
     date.setDate(values[0]);
     date.setMonth(parseInt(values[1]) - 1);
     date.setFullYear(values[2]);
