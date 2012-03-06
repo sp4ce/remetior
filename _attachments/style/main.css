@@ -58,9 +58,8 @@ h1 {
 
 #menu a {
   padding: 4px;
-  width: 45px;
+  width: 90px;
   display: inline-block;
-  text-align: center;
 }
 
 #menu li.selected {
@@ -99,3 +98,16 @@ h1 {
 .dialog div {
   background: white;
 }
+
+/*********************************
+ * Classes for the configuration *
+ ********************************/
+
+#configuration .add-new-category {
+  list-style-type: square;
+}
+
+#configuration .add-new-category form {
+  display: inline;
+}
+

@@ -1,0 +1,14 @@
+<h2>Configuration</h2>
+<h3>Categories</h3>
+<ul>
+{{#categories}}
+    <li>{{name}} <input type="button" class="delete" value="x"/></li>
+{{/categories}}
+    <li class="add-new-category">
+        <a href="#">Add new category</a>
+        <form>
+            <input type="text" name="category"/>
+            <input type="submit"/>
+        </form>
+    </li>
+</ul>
