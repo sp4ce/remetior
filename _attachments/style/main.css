@@ -53,11 +53,14 @@ h1 {
 }
 
 #menu li {
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
 #menu a {
-  padding: 6px;
+  padding: 4px;
+  width: 45px;
+  display: inline-block;
+  text-align: center;
 }
 
 #menu li.selected {

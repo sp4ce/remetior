@@ -4,7 +4,6 @@ function(callback) {
     // Fetch the configuration
     $$(this).app.db.openDoc('configuration', {
         success: function(data) {
-            $.log("coucou" + data);
             callback(data);
         },
         // If the configuration is not found, create one.
