@@ -105,9 +105,25 @@ h1 {
 
 #configuration .add-new-category {
   list-style-type: square;
+  margin-top: 15px;
 }
 
 #configuration .add-new-category form {
   display: inline;
 }
 
+#configuration .category .delete {
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+  vetical-align: -15%;
+  height: 1.5em;
+  padding-bottom: 0.5em;
+  padding-top: 0;
+  margin-left: 8px;
+  border: 1px outset #CCC;
+}
+
+#configuration .category .delete:hover {
+  color: red;
+}
