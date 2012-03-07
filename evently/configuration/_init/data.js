@@ -1,3 +1,3 @@
 function(data) {
-    return { categories: data.categories || [] };
+    return { categories: data.doc.categories || [] };
 }
