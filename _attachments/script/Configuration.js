@@ -50,6 +50,18 @@ var Configuration = Class.extend({
     },
 
     /**
+     * Get the given category according to name.
+     * @param name: the name of the category.
+     */
+    get_category: function(name) {
+        var grep = $.grep(this.doc.categories, function(category) {
+            return category.name == name;
+        });
+
+        return grep.length == 0 ? null : grep[0];
+    },
+
+    /**
      * Add a new category in the configuration
      * @param name: the name of the category.
      */
