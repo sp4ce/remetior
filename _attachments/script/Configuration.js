@@ -37,12 +37,12 @@ var Configuration = Class.extend({
 
     /**
      * Delete a category in the configuration
-     * @param name: the name of the category to delete.
+     * @param index: the index of the category to delete.
      */
-    delete_category : function(name) {
+    delete_category : function(index) {
        // Grep the category for the category with the same name.
-       this.doc.categories = $.grep(this.doc.categories, function(category) {
-           return category.name != name;
+       this.doc.categories = this.doc.categories.filter(function(category, idx) {
+           return idx != index;
        });
 
        // Save the doc in the db.
@@ -51,14 +51,14 @@ var Configuration = Class.extend({
 
     /**
      * Get the given category according to name.
-     * @param name: the name of the category.
+     * @param name: the index of the category.
      */
-    get_category: function(name) {
-        var grep = $.grep(this.doc.categories, function(category) {
-            return category.name == name;
-        });
+    get_category: function(index) {
+        if (this.doc.categories && index < this.doc.categories.length) {
+            return this.doc.categories[index];
+        }
 
-        return grep.length == 0 ? null : grep[0];
+        return null;
     },
 
     /**
