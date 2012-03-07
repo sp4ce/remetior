@@ -78,5 +78,12 @@ var Configuration = Class.extend({
 
         // Save it to the database.
         this.db.saveDoc(this.doc);
-    }
+    },
+
+    /**
+     * Save the doc in the database.
+     */
+    save: function() {
+        this.db.saveDoc(this.doc);
+    },
 });

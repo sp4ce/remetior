@@ -1,6 +1,16 @@
-<h3>Category Editor: {{name}}</h3>
-<ul>
-    {{#regexes}}
-    <li><pre>{{value}}</pre><i>{{description}}</i><li>
-    {{/regexes}}
-</ul>
+<div id="category-editor">
+    <h3>Category Editor: {{name}}</h3>
+    <div>
+        <label for="name">name</label>
+        <input type="text" name="name" value="{{name}}" class="js-auto-saver"/>
+    </div>
+    <div>
+        <label for="description">description</label>
+        <input type="text" name="description" value="{{description}}" class="js-auto-saver"/>
+    </div>
+    <ul>
+        {{#regexes}}
+        <li><pre>{{value}}</pre><i>{{description}}</i><li>
+        {{/regexes}}
+    </ul>
+</div>

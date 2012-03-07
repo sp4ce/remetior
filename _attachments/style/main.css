@@ -143,3 +143,12 @@ h1 {
   border-radius: 8px;
   display: none;
 }
+
+/**********************************
+ * Styles for the category editor *
+ **********************************/
+
+#category-editor label {
+  width: 85px;
+  display: inline-block;
+}
