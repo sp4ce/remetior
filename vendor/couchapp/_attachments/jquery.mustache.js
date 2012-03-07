@@ -129,9 +129,11 @@ var Mustache = function() {
           }
         } else if(type == "#") { // normal section
           if(that.is_array(value)) { // Enumerable, Let's loop!
+            var index = 0;
             return that.map(value, function(row) {
-              return that.render(content, that.create_context(row),
-                partials, true);
+              var context = that.create_context(row);
+              context.__index = index++;
+              return that.render(content, context, partials, true);
             }).join("");
           } else if(that.is_object(value)) { // Object, Use it as subcontext!
             return that.render(content, that.create_context(value),
