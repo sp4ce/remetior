@@ -1,4 +1,4 @@
-/******************************* 
+/*******************************
  * General style for HTML tags *
  *******************************/
 
@@ -52,8 +52,13 @@ h1 {
   float: left;
 }
 
+#menu ul {
+  padding-left: 6px;
+}
+
 #menu li {
   margin: 8px 0;
+  list-style-position: inside;
 }
 
 #menu a {
@@ -126,4 +131,15 @@ h1 {
 
 #configuration .category .delete:hover {
   color: red;
+}
+
+#configuration #editor {
+  float: right;
+  width: 60%;
+  border: 1px solid black;
+  padding: 10px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  display: none;
 }

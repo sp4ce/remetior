@@ -1,5 +1,4 @@
 function(e) {
     e.preventDefault();
-    var category = $('#configuration').data('configuration').get_category($(this).html());
-    $.log(category);
+    $('#editor').show().evently('category_editor', $$(this).app, $(this).html());
 }
