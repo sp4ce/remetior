@@ -2,15 +2,18 @@
     <h3>Category Editor: {{name}}</h3>
     <div>
         <label for="name">name</label>
-        <input type="text" name="name" value="{{name}}" class="js-auto-saver"/>
+        <input type="text" name="name" value="{{name}}"/>
     </div>
     <div>
         <label for="description">description</label>
-        <input type="text" name="description" value="{{description}}" class="js-auto-saver"/>
+        <input type="text" name="description" value="{{description}}"/>
     </div>
     <ul>
         {{#regexes}}
         <li><pre>{{value}}</pre><i>{{description}}</i><li>
         {{/regexes}}
     </ul>
+    <div>
+        <input type="button" class="save" value="Save and close"/>
+    </div>
 </div>

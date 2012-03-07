@@ -126,6 +126,7 @@ h1 {
   padding-bottom: 0.5em;
   padding-top: 0;
   margin-left: 8px;
+  margin-bottom: -2px;
   border: 1px outset #CCC;
 }
 
@@ -151,4 +152,8 @@ h1 {
 #category-editor label {
   width: 85px;
   display: inline-block;
+}
+
+#category-editor .save {
+  float: right;
 }
