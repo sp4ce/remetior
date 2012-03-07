@@ -10,9 +10,9 @@ function() {
     }
 
     // Get all the existing category.
-    var existing_categories = $(this).parents('ul').find('li.category span');
-    for(var i = 0; i < existing_categories.length; i++) {
-        if ($(existing_categories[i]).html() == value) {
+    var categories = $('#configuration').data('configuration').doc.categories || [];
+    for(var i = 0; i < categories.length; i++) {
+        if (categories[i].name == value) {
             $(this.form).find('input[type="submit"]').hide();
             $(this.form).find('label').show();
             return;
