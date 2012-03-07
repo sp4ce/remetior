@@ -3,5 +3,5 @@ function() {
     $(this).enable(false);
 
     // Delete the category.
-    $('#configuration').data('configuration').delete_category($(this).prev().html());
+    $('#configuration').data('configuration').delete_category($(this).prev().attr('data-index'));
 }
