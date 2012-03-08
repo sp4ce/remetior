@@ -1,10 +1,9 @@
 function(data) {
-    $(this).find('.add-new-category form').hide().ajaxForm();
     $(this).data('configuration', data);
     var app = $$(this).app;
     $(this).find('.categories').evently('list_item', app, {
         add_label: 'Add new category',
-        items: data.doc.categories.map(function(category) { return { label: category.name }; }),
+        items: (data.doc.categories || []).map(function(category) { return { label: category.name }; }),
         click: function(index) {
             $('#editor').show().evently('category_editor', app, index);
         },

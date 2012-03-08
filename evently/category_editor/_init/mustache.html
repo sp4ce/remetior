@@ -8,11 +8,8 @@
         <label for="description">description</label>
         <input type="text" name="description" value="{{description}}"/>
     </div>
-    <ul>
-        {{#regexes}}
-        <li><pre>{{value}}</pre><i>{{description}}</i><li>
-        {{/regexes}}
-    </ul>
+    <h4>Regexes</h4>
+    <div class='regexes'></div>
     <div>
         <input type="button" class="save" value="Save and close"/>
     </div>
