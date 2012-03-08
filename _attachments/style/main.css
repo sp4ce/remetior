@@ -104,20 +104,20 @@ h1 {
   background: white;
 }
 
-/*********************************
- * Classes for the configuration *
- ********************************/
+/*****************************
+ * Classes for the list item *
+ *****************************/
 
-#configuration .add-new-category {
+.list-item li.add {
   list-style-type: square;
   margin-top: 15px;
 }
 
-#configuration .add-new-category form {
+.list-item li.add form {
   display: inline;
 }
 
-#configuration .category .delete {
+.list-item li .delete {
   -webkit-border-radius: 2em;
   -moz-border-radius: 2em;
   border-radius: 2em;
@@ -130,9 +130,13 @@ h1 {
   border: 1px outset #CCC;
 }
 
-#configuration .category .delete:hover {
+.list-item li .delete:hover {
   color: red;
 }
+
+/*********************************
+ * Classes for the configuration *
+ ********************************/
 
 #configuration #editor {
   float: right;

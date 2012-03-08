@@ -1,16 +1,4 @@
 <div id="editor"></div>
 <h2>Configuration</h2>
 <h3>Categories</h3>
-<ul>
-{{#categories}}
-    <li class="category"><a href="#" data-index="{{__index}}">{{name}}</a><input type="button" class="delete" value="x" title="delete"/></li>
-{{/categories}}
-    <li class="add-new-category">
-        <a href="#">Add new category</a>
-        <form>
-            <input type="text" name="category"/>
-            <label style="color: red;">/!\ name</label>
-            <input type="submit"/>
-        </form>
-    </li>
-</ul>
+<div class="categories"></div>

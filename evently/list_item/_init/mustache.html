@@ -1,0 +1,13 @@
+<ul class="list-item">
+{{#items}}
+    <li class="item"><a href="#" data-index="{{__index}}">{{label}}</a><input type="button" class="delete" value="x" title="delete"/></li>
+{{/items}}
+    <li class="add">
+        <a href="#">{{add_label}}</a>
+        <form>
+            <input type="text" name="name"/>
+            <label style="color: red;">/!\ name</label>
+            <input type="submit"/>
+        </form>
+    </li>
+</ul>
