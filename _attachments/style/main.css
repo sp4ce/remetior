@@ -161,3 +161,11 @@ h1 {
 #category-editor .save {
   float: right;
 }
+
+/******************************
+ * Styles for the data widget *
+ *****************************/
+
+#data #analyze {
+  float: right;
+}

@@ -27,6 +27,6 @@ function(e, data) {
        add: function(value) {
           this.items.push({ label: value});
           $('#category-editor .regexes').trigger('_init', this);
-       }
+       },
     });
 }
