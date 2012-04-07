@@ -1,4 +1,4 @@
-function(callback, e, data) {
+function(e, data) {
     if (data) {
         $(this).find('label').html(data);    
     } else {

@@ -1,3 +1,3 @@
-function(callback, e, data) {
+function(e, data) {
     $(this).find('label').html(data);
 }
