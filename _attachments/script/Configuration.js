@@ -22,7 +22,7 @@ var Configuration = Class.extend({
             },
             // If the configuration is not found, create one.
             error: function(){
-                var doc = { _id: 'configuration' };
+                var doc = { _id: 'configuration', last_modification: new Date() };
                 db.saveDoc(doc, {
                     success: function(doc) {
                         object.doc
@@ -46,7 +46,7 @@ var Configuration = Class.extend({
        });
 
        // Save the doc in the db.
-       this.db.saveDoc(this.doc);
+       this.save();
     },
 
     /**
@@ -77,13 +77,14 @@ var Configuration = Class.extend({
         }
 
         // Save it to the database.
-        this.db.saveDoc(this.doc);
+        this.save();
     },
 
     /**
      * Save the doc in the database.
      */
     save: function() {
+        this.doc.last_modification = new Date();
         this.db.saveDoc(this.doc);
     },
 });

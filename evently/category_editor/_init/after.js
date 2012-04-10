@@ -8,7 +8,7 @@ function(e, data) {
     // Set the list item for the regexes.
     $(this).find('.regexes').evently('list_item', $$(this).app, {
        add_label: 'Add new regex',
-       items: (category.regexes || []).map(function(regex) { $.log(regex); return { label: regex }; }),
+       items: (category.regexes || []).map(function(regex) { return { label: regex }; }),
        delete: function(index) {
            this.items = this.items.filter(function(item, idx) {
                return idx != index;

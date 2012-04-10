@@ -35,3 +35,21 @@ function couch_login(app) {
     });
 }
 
+/**
+ * Helper to execute several call and then a shared callback.
+ * @param aync_calls: the array of method to execute.
+ * @param shared_callback: the callback to execute at the end of all the function
+ */
+function fork (async_calls, shared_callback) {
+    var counter = async_calls.length;
+    var callback = function () {
+        counter --;
+        if (counter == 0) {
+            shared_callback()
+        }
+    }
+
+    for (var i=0;i<async_calls.length;i++) {
+       async_calls[i](callback);
+    }
+}
