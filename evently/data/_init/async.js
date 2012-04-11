@@ -29,7 +29,7 @@ function(callback) {
     // Get the operations that are outdated (new configuration)
     var get_outdated_operations = function(callback) {
         analyzer.get_outdated_operations(function(view) {
-            data.total_outdated_operations = view.total_rows;
+            data.total_outdated_operations = view.rows.length;
             callback();
         });
     };
@@ -37,7 +37,7 @@ function(callback) {
     // Get the operations that analyzed.
     var get_analyzed_operations = function(callback) {
         analyzer.get_analyzed_operations(function(view) {
-            data.total_analyzed_operations = view.total_rows;
+            data.total_analyzed_operations = view.rows.length;
             callback();
         });
     };

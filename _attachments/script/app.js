@@ -42,6 +42,11 @@ function couch_login(app) {
  */
 function fork (async_calls, shared_callback) {
     var counter = async_calls.length;
+    if (counter == 0) {
+        shared_callback();
+        return;
+    }
+
     var callback = function () {
         counter --;
         if (counter == 0) {
