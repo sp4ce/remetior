@@ -15,10 +15,12 @@ var Analyzer = Class.extend({
     /**
      * Get the total count of operations.
      * @param callback: call with the view data.
+     * @param include: include the operation document in the result).
      */
-    get_operations: function(callback) {
+    get_operations: function(callback, include) {
         this.db.view('remetior/operations', {
-            success: callback
+            success: callback,
+            include_docs: include || false
         });
     },
 
