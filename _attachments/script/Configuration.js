@@ -81,6 +81,28 @@ var Configuration = Class.extend({
     },
 
     /**
+     * Validate the category name and that it is unique.
+     * @param category: the name of the category.
+     */
+    validate_category: function(category) {
+        // Check the string value.
+        var regex_result = /([a-z]|[A-Z])\w*/.exec(category);
+        if (!regex_result || regex_result.length == 0 || regex_result[0] != category) {
+            return false;
+        }
+
+        // Check it is a unique category.
+        var categories = this.doc.categories || [];
+        for(var i = 0; i < categories.length; i++) {
+            if (categories[i].name == category) {
+                return false;
+            }
+        }
+
+        return true;
+    },
+
+    /**
      * Save the doc in the database.
      */
     save: function() {

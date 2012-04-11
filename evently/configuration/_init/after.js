@@ -10,25 +10,7 @@ function(data) {
         delete: function(index) {
             data.delete_category(index);
         },
-        validate: function(value) {
-            // Check the string value.
-            var regex_result = /([a-z]|[A-Z])\w*/.exec(value);
-            if (!regex_result || regex_result.length == 0 || regex_result[0] != value) {
-                return false;
-            }
-
-            // Check it is a unique category.
-            var categories = data.doc.categories || [];
-            for(var i = 0; i < categories.length; i++) {
-                if (categories[i].name == value) {
-                    $(this.form).find('input[type="submit"]').hide();
-                    $(this.form).find('label').show();
-                    return false;
-                }
-            }
-
-            return true;
-        },
+        validate: function(value) { return data.validate_category(value); },
         add: function(name) {
             data.add_category(name);
         }
