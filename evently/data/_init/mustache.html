@@ -1,7 +1,7 @@
-<div id="analyze">
-    <input type="button" value="Analyze"/>
-</div>
 <div>
+    <div id="analyze">
+        <input type="button" value="Analyze"/>
+    </div>
     <table>
         <caption>Operations</caption>
         <tr>
@@ -19,5 +19,7 @@
     </table>
 </div>
 <div>
-  charts
+    {{#charts}}
+        <div class="chart" id="chart_{{__index}}"></div>
+    {{/charts}}
 </div>
