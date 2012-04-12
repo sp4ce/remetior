@@ -198,4 +198,5 @@ tr:nth-child(odd) {
 
 #data #analyze {
   float: right;
+  margin-top: 24px;
 }
