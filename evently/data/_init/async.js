@@ -17,7 +17,7 @@ function(callback) {
             data.total_operations = view.total_rows;
             callback();
         });
-    }); 
+    });
 
     // Get the newly inserted operations.
     forks.push(function(callback) {
@@ -54,7 +54,19 @@ function(callback) {
             group: true
         });
     });
-    
+
+    // Get the categories values for each week
+    forks.push(function(callback) {
+        db.view('remetior/categories_values_weeks', {
+            success: function(view) {
+                data.categories_values_weeks = view.rows;
+                callback();
+            },
+            reduce: true,
+            group: true
+        });
+    });
+
     // Forks all the method and return the data.
     fork(forks, function() {
         callback(data);
