@@ -14,7 +14,3 @@ Edit database connection access (it is admin:admin by default)
 Install with 
     
     couchapp push 
-
-## License
-
-Apache 2.0
